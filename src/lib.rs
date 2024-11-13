@@ -29,6 +29,10 @@ mod snd;
 #[cfg(not(target_arch = "wasm32"))]
 mod mixer;
 
+#[cfg(target_os = "haiku")]
+#[path = "haiku_snd.rs"]
+mod snd;
+
 pub use snd::{AudioContext, Playback, Sound};
 
 pub struct PlaySoundParams {
